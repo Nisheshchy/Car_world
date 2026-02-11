@@ -1,5 +1,5 @@
 /** @format */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Background from "./Components/Background/Background";
 import Navbar from "./Components/Navbar/Navbar";
 import Hero from "./Components/Hero/Hero";
@@ -7,20 +7,30 @@ import Hero from "./Components/Hero/Hero";
 const App = () => {
   let heroData = [
     {
-      text1: "Drive info",
-      text2: "What you love",
+      text1: "Driver choices",
+      text2: "For heart touch love",
     },
     {
-      text1: "Indulge",
-      text2: "your passions",
+      text1: "Speed Boost",
+      text2: "Unable take stop",
     },
     {
-      text1: "Give in to",
-      text2: "your passions",
+      text1: "Skill Matter for derbling",
+      text2: "For the focus in balance",
     },
   ];
   const [heroCount, setHeroCount] = useState(0);
   const [playStatus, setPlayStatus] = useState(false);
+
+useEffect(() => {
+  setInterval(() => {
+    setHeroCount((count) => {
+      return count === 2 ? 0 : count + 1;
+    });
+  }, 3000);
+}, []);
+
+
 
   return (
     <div>
